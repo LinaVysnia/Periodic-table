@@ -1,0 +1,135 @@
+body {
+    background-color: transparent;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2vw ;
+}
+
+/* hiding the h1 title when the table is replaced by an image */
+@media (max-width: 792px) or (max-height: 528px){
+    h1 {
+        display: none;
+    } 
+}  
+
+h2 {
+    font-size: 1rem;
+}
+
+#tableGrid {
+    display: grid;
+    background-color: transparent;
+    padding: 2vw;
+    padding-top: 0px;
+    grid-template-columns: repeat(18, 5vw);
+    grid-template-rows: repeat(9, auto);
+    gap: 0.3vw;
+}
+
+/* when a specific screen size is reached the grid is hidden and replaced by an image */
+@media (max-width: 792px) or (max-height:528px){
+    #tableGrid {
+        display: none;
+    }
+} 
+
+/* Descriptions of elements' cells contents */
+.element {
+    border: 1px solid black;
+    /* background-color:gainsboro; */
+    background: linear-gradient(to top right, #ffffff00, #cbd7e0);
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* adjusting the table style when the screen size gets small */
+@media (max-width: 1200px) or (max-height: 600px){
+    .element {
+        border-radius: 0px;
+        background: linear-gradient(to bottom left, #ffffff00, #d3e0cb);
+    } 
+}
+
+.atomicNumber {
+    font-size:medium;
+    padding-top: 0.2rem;
+}
+
+.symbol {
+    font-weight: bolder;
+    font-size:large;
+    padding-top: 0.2vh;
+    padding-bottom: 0.2vh;
+}
+
+.name {
+    font-size: xx-small;
+    padding: 2px;
+    padding-bottom: 0.2vh;
+    display: block;
+}
+
+/* elements' name is hidden when the table starts breaking */
+@media (max-width: 1200px) or (max-height: 600px){
+    .name {
+        display: none;
+    } 
+}
+
+/* Style for the element groups */
+.elementGroup{
+    background-color: transparent;
+    border: 1px dashed black;
+}
+
+#Lanthanides {
+    grid-column: 3;
+    grid-row: 6;
+}
+
+#Actinides {
+    grid-column: 3;
+    grid-row: 7;
+}
+
+/* Grid gap styles */
+.gridGap {
+    background-color: transparent;
+}
+
+#gridGapRowOne {
+    grid-column: 2/18;
+    grid-row: 1;
+}
+
+#gridGapUpperCentral { 
+    grid-column: 3/13;
+    grid-row: 2/4;
+}
+
+#gridGapBottomLleft {
+    grid-column: 1/4;
+    grid-row: 8/10;
+}
+
+/* This is the gap separating the Lanthnide and Actinide groups from the rest of the table
+If there is a better way insert a gap in this specific area of the table please let me know */
+.element:nth-child(n+89):nth-child(-n+103){
+    margin-top: 1rem;
+}
+
+/* When the table is hidden due to the small screen size the image appears */
+img {
+    display: none;
+}
+@media (max-width: 792px) or (max-height: 528px) {
+    img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+        max-height: 100vh;
+    } 
+}
